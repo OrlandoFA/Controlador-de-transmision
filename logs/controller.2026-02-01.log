@@ -1,0 +1,18 @@
+2026-02-01 23:47:34.704 [main] INFO  com.pvz.controller.Main - Starting PvZ Controller...
+2026-02-01 23:47:34.732 [main] INFO  com.pvz.controller.Main - Port: 8080 | Scripts dir: ./scripts | Localhost only: true
+2026-02-01 23:47:34.925 [main] INFO  c.p.c.server.HttpCommandServer - HTTP Server started on port 8080
+2026-02-01 23:47:34.926 [main] INFO  com.pvz.controller.Main - Controller is running on port 8080
+2026-02-01 23:47:34.926 [main] INFO  com.pvz.controller.Main - Endpoints:
+2026-02-01 23:47:34.926 [main] INFO  com.pvz.controller.Main -   POST /command - Execute game command
+2026-02-01 23:47:34.926 [main] INFO  com.pvz.controller.Main -   GET  /health  - Health check
+2026-02-01 23:47:34.926 [main] INFO  com.pvz.controller.Main -   GET  /status  - Server status
+2026-02-01 23:50:54.798 [Thread-1] INFO  com.pvz.controller.Main - Shutting down controller...
+2026-02-01 23:50:54.799 [Thread-1] INFO  c.p.c.server.HttpCommandServer - HTTP Server stopped
+2026-02-01 23:51:29.998 [main] INFO  com.pvz.controller.Main - Starting PvZ Controller...
+2026-02-01 23:51:30.002 [main] INFO  com.pvz.controller.Main - Port: 8080 | Scripts dir: ./scripts | Localhost only: true
+2026-02-01 23:51:30.195 [main] INFO  c.p.c.server.HttpCommandServer - HTTP Server started on port 8080
+2026-02-01 23:51:30.196 [main] INFO  com.pvz.controller.Main - Controller is running on port 8080
+2026-02-01 23:51:30.196 [main] INFO  com.pvz.controller.Main - Endpoints:
+2026-02-01 23:51:30.196 [main] INFO  com.pvz.controller.Main -   POST /command - Execute game command
+2026-02-01 23:51:30.196 [main] INFO  com.pvz.controller.Main -   GET  /health  - Health check
+2026-02-01 23:51:30.196 [main] INFO  com.pvz.controller.Main -   GET  /status  - Server status
