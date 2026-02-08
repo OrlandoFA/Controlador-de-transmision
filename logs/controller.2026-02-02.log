@@ -1,0 +1,272 @@
+2026-02-02 00:06:13.301 [pool-1-thread-1] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:06:13.311 [pool-1-thread-1] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "plants",
+  "user": "enmtagmx"
+}
+2026-02-02 00:06:13.373 [pool-1-thread-1] INFO  c.p.c.handler.CommandRequestHandler - Executing command: plants from user: enmtagmx
+2026-02-02 00:06:13.374 [pool-1-thread-1] INFO  c.p.c.memory.TrainerExecutor - Conectando a PvZ...
+2026-02-02 00:06:13.708 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZProcess - Found process: PlantsVsZombies.exe (PID: 10420)
+2026-02-02 00:06:13.708 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZProcess - Found process: PlantsVsZombies.exe (PID: 10420)
+2026-02-02 00:06:13.710 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZProcess - Found process: popcapgame1.exe (PID: 28952)
+2026-02-02 00:06:13.712 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZProcess - Using process: popcapgame1.exe (PID: 28952)
+2026-02-02 00:06:13.782 [pool-1-thread-1] INFO  c.p.controller.memory.ProcessMemory - Process opened successfully. PID: 28952
+2026-02-02 00:06:13.835 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer - Trying base address: 0x731c50
+2026-02-02 00:06:13.835 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer -   Game pointer: 0x1fab80, Board pointer: 0x1ff492a8
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer - SUCCESS! Found valid base at 0x731c50
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer -   Sun value: 50
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer - Trainer connected successfully!
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer - Scene: Night (1), Rows: 5
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.PvZTrainer - Testing code injection capability...
+2026-02-02 00:06:13.836 [pool-1-thread-1] INFO  c.pvz.controller.memory.CodeInjector - Testing code injection...
+2026-02-02 00:06:13.836 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Allocated 16 bytes at 0x9300000
+2026-02-02 00:06:13.837 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 29752
+2026-02-02 00:06:13.837 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:06:13.838 [pool-1-thread-1] INFO  c.pvz.controller.memory.CodeInjector - Code injection test PASSED
+2026-02-02 00:06:55.693 [pool-1-thread-3] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:06:55.693 [pool-1-thread-3] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "plant",
+  "type": "jala",
+  "user": "lesly03754",
+  "row": "B",
+  "col": 1
+}
+2026-02-02 00:06:55.694 [pool-1-thread-3] INFO  c.p.c.handler.CommandRequestHandler - Executing command: plant from user: lesly03754
+2026-02-02 00:06:55.694 [pool-1-thread-3] INFO  c.pvz.controller.memory.PlantManager - Plantando 🌶️ Jalapeno en B1
+2026-02-02 00:06:55.694 [pool-1-thread-3] INFO  c.pvz.controller.memory.CodeInjector - PlantPlant: type=20, row=1, col=0, imitater=false
+2026-02-02 00:06:55.694 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Plant shellcode built: 43 bytes
+2026-02-02 00:06:55.695 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:06:55.724 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:06:55.724 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 30904
+2026-02-02 00:06:55.734 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:06:55.734 [pool-1-thread-3] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:06:55.734 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:07:46.943 [pool-1-thread-1] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:07:46.943 [pool-1-thread-1] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "plant",
+  "type": "jala",
+  "user": "lesly03754",
+  "row": "E",
+  "col": 1
+}
+2026-02-02 00:07:46.944 [pool-1-thread-1] INFO  c.p.c.handler.CommandRequestHandler - Executing command: plant from user: lesly03754
+2026-02-02 00:07:46.944 [pool-1-thread-1] INFO  c.pvz.controller.memory.PlantManager - Plantando 🌶️ Jalapeno en E1
+2026-02-02 00:07:46.944 [pool-1-thread-1] INFO  c.pvz.controller.memory.CodeInjector - PlantPlant: type=20, row=4, col=0, imitater=false
+2026-02-02 00:07:46.944 [pool-1-thread-1] DEBUG c.pvz.controller.memory.CodeInjector - Plant shellcode built: 43 bytes
+2026-02-02 00:07:46.944 [pool-1-thread-1] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:07:46.971 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:07:46.971 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 29420
+2026-02-02 00:07:46.972 [pool-1-thread-1] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:07:46.972 [pool-1-thread-1] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:07:46.972 [pool-1-thread-1] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:09:22.372 [pool-1-thread-3] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:09:22.372 [pool-1-thread-3] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "plant",
+  "type": "jala",
+  "user": "lesly03754",
+  "row": "A",
+  "col": 1
+}
+2026-02-02 00:09:22.372 [pool-1-thread-3] INFO  c.p.c.handler.CommandRequestHandler - Executing command: plant from user: lesly03754
+2026-02-02 00:09:22.373 [pool-1-thread-3] INFO  c.pvz.controller.memory.PlantManager - Plantando 🌶️ Jalapeno en A1
+2026-02-02 00:09:22.373 [pool-1-thread-3] INFO  c.pvz.controller.memory.CodeInjector - PlantPlant: type=20, row=0, col=0, imitater=false
+2026-02-02 00:09:22.373 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Plant shellcode built: 43 bytes
+2026-02-02 00:09:22.373 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:09:22.397 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:09:22.397 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 32200
+2026-02-02 00:09:22.398 [pool-1-thread-3] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:09:22.398 [pool-1-thread-3] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:09:22.398 [pool-1-thread-3] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:09:39.401 [pool-1-thread-4] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:09:39.402 [pool-1-thread-4] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "zombies",
+  "user": "enmtagmx"
+}
+2026-02-02 00:09:39.402 [pool-1-thread-4] INFO  c.p.c.handler.CommandRequestHandler - Executing command: zombies from user: enmtagmx
+2026-02-02 00:11:10.197 [pool-1-thread-2] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:11:10.197 [pool-1-thread-2] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "spawn_zombie",
+  "type": "yeti",
+  "count": 10,
+  "user": "lesly03754"
+}
+2026-02-02 00:11:10.198 [pool-1-thread-2] INFO  c.p.c.handler.CommandRequestHandler - Executing command: spawn_zombie from user: lesly03754
+2026-02-02 00:11:10.198 [pool-1-thread-2] INFO  c.p.c.memory.TrainerExecutor - Ejecutando spawn: Zombie Yeti x10
+2026-02-02 00:11:10.199 [pool-1-thread-2] DEBUG c.pvz.controller.memory.PvZTrainer - Adventure level: 12, Active rows: [0, 1, 2, 3, 4]
+2026-02-02 00:11:10.199 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Spawning Zombie Yeti x10 (type ID: 19)
+2026-02-02 00:11:10.199 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Valid rows: [0, 1, 2, 3, 4], Scene: Night
+2026-02-02 00:11:10.199 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=3, col=9
+2026-02-02 00:11:10.200 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:10.234 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:10.235 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 4692
+2026-02-02 00:11:10.259 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:10.259 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:10.259 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:10.260 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 1 spawned on row 3
+2026-02-02 00:11:10.469 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:11:10.469 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:10.500 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:10.500 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 10900
+2026-02-02 00:11:10.500 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:10.500 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:10.502 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:10.502 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 2 spawned on row 1
+2026-02-02 00:11:10.704 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=0, col=9
+2026-02-02 00:11:10.704 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:10.734 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:10.734 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 27588
+2026-02-02 00:11:10.734 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:10.734 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:10.734 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:10.734 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 3 spawned on row 0
+2026-02-02 00:11:10.948 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=0, col=9
+2026-02-02 00:11:10.948 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:10.978 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:10.978 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 21980
+2026-02-02 00:11:10.980 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:10.980 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:10.980 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:10.980 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 4 spawned on row 0
+2026-02-02 00:11:11.181 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=2, col=9
+2026-02-02 00:11:11.181 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:11.213 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:11.213 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 29196
+2026-02-02 00:11:11.214 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:11.214 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:11.214 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:11.214 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 5 spawned on row 2
+2026-02-02 00:11:11.415 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=0, col=9
+2026-02-02 00:11:11.415 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:11.446 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:11.446 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 2068
+2026-02-02 00:11:11.447 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:11.447 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:11.447 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:11.447 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 6 spawned on row 0
+2026-02-02 00:11:11.648 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=2, col=9
+2026-02-02 00:11:11.648 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:11.679 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:11.679 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 31800
+2026-02-02 00:11:11.679 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:11.679 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:11.679 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:11.680 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 7 spawned on row 2
+2026-02-02 00:11:11.895 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=3, col=9
+2026-02-02 00:11:11.895 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:11.926 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:11.926 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 29748
+2026-02-02 00:11:11.926 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:11.926 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:11.928 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:11.928 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 8 spawned on row 3
+2026-02-02 00:11:12.143 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=3, col=9
+2026-02-02 00:11:12.143 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:12.174 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:12.174 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 28708
+2026-02-02 00:11:12.175 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:12.175 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:12.175 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:12.175 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 9 spawned on row 3
+2026-02-02 00:11:12.389 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=0, col=9
+2026-02-02 00:11:12.389 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:11:12.420 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:11:12.421 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 2508
+2026-02-02 00:11:12.422 [pool-1-thread-2] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:11:12.422 [pool-1-thread-2] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:11:12.422 [pool-1-thread-2] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:11:12.422 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 10 spawned on row 0
+2026-02-02 00:11:12.422 [pool-1-thread-2] INFO  c.pvz.controller.memory.PvZTrainer - Successfully spawned 10 of 10 Zombie Yeti zombie(s)
+2026-02-02 00:12:28.238 [pool-1-thread-4] DEBUG c.p.c.handler.CommandRequestHandler - Request from: 127.0.0.1
+2026-02-02 00:12:28.239 [pool-1-thread-4] DEBUG c.p.c.handler.CommandRequestHandler - Request body: {
+  "command": "spawn_zombie",
+  "type": "yeti",
+  "count": 10,
+  "user": "enmtagmx"
+}
+2026-02-02 00:12:28.239 [pool-1-thread-4] INFO  c.p.c.handler.CommandRequestHandler - Executing command: spawn_zombie from user: enmtagmx
+2026-02-02 00:12:28.239 [pool-1-thread-4] INFO  c.p.c.memory.TrainerExecutor - Ejecutando spawn: Zombie Yeti x10
+2026-02-02 00:12:28.239 [pool-1-thread-4] DEBUG c.pvz.controller.memory.PvZTrainer - Adventure level: 12, Active rows: [0, 1, 2, 3, 4]
+2026-02-02 00:12:28.239 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Spawning Zombie Yeti x10 (type ID: 19)
+2026-02-02 00:12:28.239 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Valid rows: [0, 1, 2, 3, 4], Scene: Night
+2026-02-02 00:12:28.239 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:28.239 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:28.274 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:28.274 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 30916
+2026-02-02 00:12:28.275 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:28.275 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:28.275 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:28.275 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 1 spawned on row 1
+2026-02-02 00:12:28.475 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=0, col=9
+2026-02-02 00:12:28.476 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:28.507 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:28.508 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 23352
+2026-02-02 00:12:28.508 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:28.508 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:28.508 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:28.508 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 2 spawned on row 0
+2026-02-02 00:12:28.709 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:28.709 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:28.740 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:28.740 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 16076
+2026-02-02 00:12:28.740 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:28.741 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:28.741 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:28.741 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 3 spawned on row 1
+2026-02-02 00:12:28.942 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:28.942 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:28.973 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:28.974 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 17012
+2026-02-02 00:12:28.974 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:28.974 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:28.974 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:28.974 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 4 spawned on row 1
+2026-02-02 00:12:29.177 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=2, col=9
+2026-02-02 00:12:29.177 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:29.209 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:29.209 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 31480
+2026-02-02 00:12:29.210 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:29.210 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:29.210 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:29.210 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 5 spawned on row 2
+2026-02-02 00:12:29.412 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=3, col=9
+2026-02-02 00:12:29.412 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:29.444 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:29.444 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 3036
+2026-02-02 00:12:29.445 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:29.445 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:29.445 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:29.445 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 6 spawned on row 3
+2026-02-02 00:12:29.646 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:29.646 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:29.677 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:29.677 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 8052
+2026-02-02 00:12:29.677 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:29.677 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:29.678 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:29.678 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 7 spawned on row 1
+2026-02-02 00:12:29.879 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:29.879 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:29.910 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:29.910 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 26104
+2026-02-02 00:12:29.910 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:29.910 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:29.910 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:29.910 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 8 spawned on row 1
+2026-02-02 00:12:30.112 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=2, col=9
+2026-02-02 00:12:30.112 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:30.143 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:30.143 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 3116
+2026-02-02 00:12:30.143 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:30.144 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:30.144 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:30.144 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 9 spawned on row 2
+2026-02-02 00:12:30.346 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - SpawnZombie: type=19, row=1, col=9
+2026-02-02 00:12:30.346 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop BLOCKED
+2026-02-02 00:12:30.376 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Allocated 59 bytes at 0x92a0000
+2026-02-02 00:12:30.376 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Created remote thread ID: 30380
+2026-02-02 00:12:30.376 [pool-1-thread-4] DEBUG c.p.controller.memory.ProcessMemory - Remote thread completed successfully
+2026-02-02 00:12:30.376 [pool-1-thread-4] INFO  c.pvz.controller.memory.CodeInjector - Shellcode executed successfully
+2026-02-02 00:12:30.378 [pool-1-thread-4] DEBUG c.pvz.controller.memory.CodeInjector - Main loop UNBLOCKED
+2026-02-02 00:12:30.378 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Zombie 10 spawned on row 1
+2026-02-02 00:12:30.378 [pool-1-thread-4] INFO  c.pvz.controller.memory.PvZTrainer - Successfully spawned 10 of 10 Zombie Yeti zombie(s)
+2026-02-02 00:13:23.535 [Thread-1] INFO  com.pvz.controller.Main - Shutting down controller...
+2026-02-02 00:13:23.536 [Thread-1] INFO  c.p.c.server.HttpCommandServer - HTTP Server stopped

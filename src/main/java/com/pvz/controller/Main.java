@@ -1,40 +1,184 @@
 package com.pvz.controller;
 
 import com.pvz.controller.config.ControllerConfig;
+import com.pvz.controller.games.GameController;
+import com.pvz.controller.games.pvz.PvZGameController;
 import com.pvz.controller.server.HttpCommandServer;
+import com.pvz.controller.tiktok.GiftMapper;
+import com.pvz.controller.tiktok.TikTokService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.*;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
+    // Juegos disponibles (agregar nuevos aquí)
+    private static final List<GameController> GAMES = List.of(
+            new PvZGameController()
+            // new OtroGameController()  ← futuros juegos
+    );
+
+    private static HttpCommandServer httpServer;
+    private static TikTokService tikTokService;
+
     public static void main(String[] args) {
-        logger.info("Starting PvZ Controller...");
-        logger.info("Port: {} | Scripts dir: {} | Localhost only: {}",
-                ControllerConfig.getPort(),
-                ControllerConfig.getScriptsDir(),
-                ControllerConfig.isLocalhostOnly());
+        printBanner();
 
+        Scanner scanner = new Scanner(System.in);
+
+        // ── Paso 1: Iniciar HTTP Server ──
         try {
-            HttpCommandServer server = new HttpCommandServer();
-            server.start();
-
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                logger.info("Shutting down controller...");
-                server.stop();
-            }));
-
-            logger.info("Controller is running on port {}", ControllerConfig.getPort());
-            logger.info("Endpoints:");
-            logger.info("  POST /command - Execute game command");
-            logger.info("  GET  /health  - Health check");
-            logger.info("  GET  /status  - Server status");
-
-            Thread.currentThread().join();
-
+            httpServer = new HttpCommandServer();
+            httpServer.start();
+            logger.info("✅ HTTP Server en puerto {}", ControllerConfig.getPort());
         } catch (Exception e) {
-            logger.error("Failed to start controller: {}", e.getMessage(), e);
+            logger.error("❌ No se pudo iniciar HTTP Server: {}", e.getMessage());
             System.exit(1);
         }
+
+        // ── Paso 2: Elegir juego ──
+        GameController game = selectGame(scanner);
+        logger.info("🎮 Juego seleccionado: {}", game.getGameName());
+
+        // ── Paso 3: Pedir usuario de TikTok ──
+        System.out.print("\n📱 Usuario de TikTok (sin @): ");
+        String tiktokUser = scanner.nextLine().trim();
+
+        if (tiktokUser.startsWith("@")) {
+            tiktokUser = tiktokUser.substring(1);
+        }
+
+        if (tiktokUser.isEmpty()) {
+            logger.warn("⚠️ No se ingresó usuario. Modo solo HTTP (sin TikTok).");
+            waitForCommands(scanner, game);
+            return;
+        }
+
+        // ── Paso 4: Conectar a TikTok ──
+        tikTokService = new TikTokService(tiktokUser, game);
+
+        // Shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            logger.info("👋 Cerrando...");
+            if (tikTokService != null) tikTokService.stop();
+            if (httpServer != null) httpServer.stop();
+        }));
+        // ── Abrir overlay de equipos ──
+        SwingUtilities.invokeLater(() -> {
+            var overlay = new com.pvz.controller.overlay.TeamsOverlayWindow(
+                    tikTokService.getTeamManager());
+            overlay.setVisible(true);
+            logger.info("🖥️ Overlay de equipos abierto (click derecho para cerrar)");
+        });
+
+        // Iniciar TikTok en otro hilo
+        String finalUser = tiktokUser;
+        Thread tiktokThread = new Thread(() -> {
+            try {
+                tikTokService.start();
+            } catch (Exception e) {
+                logger.error("❌ Error conectando a TikTok: {}", e.getMessage());
+                logger.info("💡 ¿@{} está en vivo?", finalUser);
+            }
+        }, "tiktok-main");
+        tiktokThread.setDaemon(true);
+        tiktokThread.start();
+
+        // ── Paso 5: Consola interactiva ──
+        waitForCommands(scanner, game);
+    }
+
+    private static GameController selectGame(Scanner scanner) {
+        System.out.println("\n╔══════════════════════════════════════╗");
+        System.out.println("║     🎮 Selecciona el juego           ║");
+        System.out.println("╠══════════════════════════════════════╣");
+
+        for (int i = 0; i < GAMES.size(); i++) {
+            System.out.printf("║  %d. %-33s║%n", i + 1, GAMES.get(i).getGameName());
+        }
+
+        System.out.println("╚══════════════════════════════════════╝");
+        System.out.print("Elige (número): ");
+
+        while (true) {
+            try {
+                String input = scanner.nextLine().trim();
+                int choice = Integer.parseInt(input);
+                if (choice >= 1 && choice <= GAMES.size()) {
+                    return GAMES.get(choice - 1);
+                }
+                System.out.print("Opción inválida. Elige (1-" + GAMES.size() + "): ");
+            } catch (NumberFormatException e) {
+                System.out.print("Ingresa un número: ");
+            }
+        }
+    }
+
+    private static void waitForCommands(Scanner scanner, GameController game) {
+        System.out.println("\n📌 Comandos: stats | gifts | reset | status | help | exit\n");
+
+        while (true) {
+            try {
+                String input = scanner.nextLine().trim().toLowerCase();
+
+                switch (input) {
+                    case "stats" -> {
+                        if (tikTokService != null) {
+                            System.out.println(tikTokService.getTeamManager().getStats());
+                        } else {
+                            System.out.println("⚠️ TikTok no conectado");
+                        }
+                    }
+                    case "gifts" -> System.out.println(GiftMapper.getGuide());
+                    case "reset" -> {
+                        if (tikTokService != null) {
+                            tikTokService.getTeamManager().reset();
+                            System.out.println("🔄 Equipos reseteados");
+                        }
+                    }
+                    case "status" -> System.out.println(game.getStatusInfo());
+                    case "help" -> printHelp();
+                    case "exit", "quit" -> {
+                        System.out.println("👋 Cerrando...");
+                        if (tikTokService != null) tikTokService.stop();
+                        if (httpServer != null) httpServer.stop();
+                        System.exit(0);
+                    }
+                    default -> {
+                        if (!input.isEmpty()) {
+                            System.out.println("❓ Comando no reconocido. Escribe 'help'");
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                break;
+            }
+        }
+    }
+
+    private static void printBanner() {
+        System.out.println();
+        System.out.println("╔══════════════════════════════════════════════════╗");
+        System.out.println("║     🎮 Game Controller + TikTok LIVE v2.0       ║");
+        System.out.println("║     🌱 Team Plantas  vs  Team Zombies 🧟        ║");
+        System.out.println("╚══════════════════════════════════════════════════╝");
+        System.out.println();
+    }
+
+    private static void printHelp() {
+        System.out.println("""
+                
+                📌 Comandos disponibles:
+                  stats  → Estadísticas de equipos
+                  gifts  → Guía de mapeo de regalos
+                  reset  → Resetear equipos (nuevo juego)
+                  status → Estado del juego
+                  help   → Esta ayuda
+                  exit   → Cerrar todo
+                """);
     }
 }
