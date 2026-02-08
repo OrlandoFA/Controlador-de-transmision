@@ -9,17 +9,14 @@ import com.pvz.controller.tiktok.TikTokService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.swing.*;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
-    // Juegos disponibles (agregar nuevos aquí)
     private static final List<GameController> GAMES = List.of(
             new PvZGameController()
-            // new OtroGameController()  ← futuros juegos
     );
 
     private static HttpCommandServer httpServer;
@@ -67,13 +64,9 @@ public class Main {
             if (tikTokService != null) tikTokService.stop();
             if (httpServer != null) httpServer.stop();
         }));
-        // ── Abrir overlay de equipos ──
-        SwingUtilities.invokeLater(() -> {
-            var overlay = new com.pvz.controller.overlay.TeamsOverlayWindow(
-                    tikTokService.getTeamManager());
-            overlay.setVisible(true);
-            logger.info("🖥️ Overlay de equipos abierto (click derecho para cerrar)");
-        });
+
+        // ── Abrir overlay en 2 ventanas Chrome separadas ──
+        openOverlayWindows();
 
         // Iniciar TikTok en otro hilo
         String finalUser = tiktokUser;
@@ -90,6 +83,71 @@ public class Main {
 
         // ── Paso 5: Consola interactiva ──
         waitForCommands(scanner, game);
+    }
+
+    private static void openOverlayWindows() {
+        try {
+            String baseUrl = "http://localhost:" + ControllerConfig.getPort() + "/overlay";
+            String chromePath = findChrome();
+
+            if (chromePath == null) {
+                logger.warn("⚠️ Chrome no encontrado. Abre manualmente:");
+                logger.info("  Ticker: {}/ticker", baseUrl);
+                logger.info("  Teams:  {}/teams", baseUrl);
+                return;
+            }
+
+            // Carpetas temporales separadas para que Chrome no fusione ventanas
+            String tempDir = System.getProperty("java.io.tmpdir");
+            String tickerProfile = tempDir + "pvz-ticker-profile";
+            String teamsProfile = tempDir + "pvz-teams-profile";
+
+            // Ventana 1: TICKER (barra de instrucciones arriba)
+            new ProcessBuilder(
+                    chromePath,
+                    "--app=" + baseUrl + "/ticker",
+                    "--user-data-dir=" + tickerProfile,
+                    "--window-size=960,82",
+                    "--window-position=0,0"
+            ).start();
+
+            Thread.sleep(800);
+
+            // Ventana 2: TEAMS (equipos a la derecha)
+            new ProcessBuilder(
+                    chromePath,
+                    "--app=" + baseUrl + "/teams",
+                    "--user-data-dir=" + teamsProfile,
+                    "--window-size=250,550",
+                    "--window-position=710,52"
+            ).start();
+
+            logger.info("🖥️ Overlay: Ticker (arriba) + Teams (derecha)");
+            logger.info("💡 Puedes minimizar ambas ventanas");
+
+        } catch (Exception e) {
+            logger.warn("⚠️ No se pudo abrir overlay: {}", e.getMessage());
+        }
+    }
+
+    private static String findChrome() {
+        String[] paths = {
+                "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+                System.getenv("LOCALAPPDATA") + "\\Google\\Chrome\\Application\\chrome.exe"
+        };
+
+        for (String p : paths) {
+            if (p != null && new java.io.File(p).exists()) return p;
+        }
+
+        try {
+            Process test = new ProcessBuilder("chrome", "--version").start();
+            test.waitFor();
+            if (test.exitValue() == 0) return "chrome";
+        } catch (Exception ignored) {}
+
+        return null;
     }
 
     private static GameController selectGame(Scanner scanner) {
